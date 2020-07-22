@@ -22,7 +22,7 @@ main {
 }
 
 #carousel div img {
-    width: 750px;
+    width: 700px;
     transition: width 1s;
 }
 
