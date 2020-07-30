@@ -5,7 +5,7 @@ let MOVE_DIR = "next";
 
 function loop() {
   let total_images = $('#carousel').children("div").length;
-  let current_index = $('#carousel').children("div").toArray().findIndex(x => x.className === "selected");
+  let current_index = $('#carousel').children("div").toArray().findIndex(x => x.className === "show");
 
   if (current_index === 0) {
     MOVE_DIR = "next";
@@ -20,29 +20,19 @@ function loop() {
 
 function moveToSelected(element) {
 
-  let selected = element;
-  if (element == "next") {
-    selected = $(".selected").next();
-  } else if (element == "prev") {
-    selected = $(".selected").prev();
+  let next;
+  let showed = $(".show");
+
+  if (element === "next") {
+    next = showed.next();
+  } else {
+    next = showed.prev();
   }
 
-  let next = $(selected).next();
-  let prev = $(selected).prev();
-  let prevSecond = $(prev).prev();
-  let nextSecond = $(next).next();
-
-  $(selected).removeClass().addClass("selected");
-
-  $(prev).removeClass().addClass("prev");
-  $(next).removeClass().addClass("next");
-
-  $(nextSecond).removeClass().addClass("nextRightSecond");
-  $(prevSecond).removeClass().addClass("prevLeftSecond");
-
-  $(nextSecond).nextAll().removeClass().addClass('hideRight');
-  $(prevSecond).prevAll().removeClass().addClass('hideLeft');
-
+  if (next.length) {
+    showed.removeClass().addClass("hidden");
+    next.removeClass().addClass("show");
+  }
 }
 
 $(function () {
@@ -66,13 +56,6 @@ $(function () {
     moveToSelected($(this));
   });
 
-  $('#prev').click(function () {
-    moveToSelected('prev');
-  });
-
-  $('#next').click(function () {
-    moveToSelected('next');
-  });
 
   window.setInterval(function () {
     loop();
