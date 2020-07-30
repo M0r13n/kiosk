@@ -9,7 +9,7 @@ main {
 
 img {
     position: absolute;
-    width: 1920px;
+    width: 100%;
     opacity: 1;
 }
 
