@@ -1,99 +1,28 @@
-TweenLite.defaultEase = Expo.easeOut;
-
 let finishedText = document.querySelector('.finished');
-let timerEl = document.querySelector('.timer');
 let timer_running = false;
+let endTime = null;
+const second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
 
 function initTimer(t) {
     if (timer_running) {
         return;
     }
-    timer_running = true;
 
-    let self = this,
-        timerEl = document.querySelector('.timer'),
-        minutesGroupEl = timerEl.querySelector('.minutes-group'),
-        secondsGroupEl = timerEl.querySelector('.seconds-group'),
+    let x = setInterval(function () {
+        let now = new Date().getTime(),
+            distance = endTime - now;
+        document.getElementById('minutes').innerText = Math.floor((distance) / (minute));
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
-        minutesGroup = {
-            firstNum: minutesGroupEl.querySelector('.first'),
-            secondNum: minutesGroupEl.querySelector('.second')
-        },
-
-        secondsGroup = {
-            firstNum: secondsGroupEl.querySelector('.first'),
-            secondNum: secondsGroupEl.querySelector('.second')
-        };
-
-    let time = {
-        min: t.split(':')[0],
-        sec: t.split(':')[1]
-    };
-
-    let timeNumbers;
-
-    function updateTimer() {
-
-        let timestr;
-        let date = new Date();
-
-        date.setHours(0);
-        date.setMinutes(time.min);
-        date.setSeconds(time.sec);
-
-        let newDate = new Date(date.valueOf() - 1000);
-        let temp = newDate.toTimeString().split(" ");
-        let tempsplit = temp[0].split(':');
-
-        time.min = tempsplit[1];
-        time.sec = tempsplit[2];
-
-        timestr = time.min + time.sec;
-        timeNumbers = timestr.split('');
-        updateTimerDisplay(timeNumbers);
-
-        if (timestr === '0000')
-            countdownFinished();
-
-        if (timestr != '0000')
-            setTimeout(updateTimer, 1000);
-
-    }
-
-    function updateTimerDisplay(arr) {
-        animateNum(minutesGroup.firstNum, arr[0]);
-        animateNum(minutesGroup.secondNum, arr[1]);
-        animateNum(secondsGroup.firstNum, arr[2]);
-        animateNum(secondsGroup.secondNum, arr[3]);
-    }
-
-    function animateNum(group, arrayValue) {
-        TweenMax.killTweensOf(group.querySelector('.number-grp-wrp'));
-        TweenMax.to(group.querySelector('.number-grp-wrp'), 1, {
-            y: -group.querySelector('.num-' + arrayValue).offsetTop
-        });
-
-    }
-    setTimeout(updateTimer, 1000);
-}
-
-function countdownFinished() {
-    setTimeout(function () {
-        TweenMax.set(finishedText, {
-            scale: 0.8,
-            display: 'block'
-        });
-        TweenMax.to(timerEl, 1, {
-            opacity: 0.1
-        });
-        TweenMax.to(finishedText, 0.5, {
-            scale: 1,
-            opacity: 1
-        });
-        finishedText.classList.remove("hidden");
-        timer_running = false;
+        if (distance < 0) {
+            document.getElementById('minutes').innerText = "00";
+            document.getElementById('seconds').innerText = "00";
+            clearInterval(x);
+        }
     }, 1000);
-
 }
 
 function checkForBreak() {
@@ -106,8 +35,9 @@ function checkForBreak() {
         .then(result => {
             const last_break = result.last_break;
             if (last_break !== null && !last_break.is_over) {
+                endTime = new Date(last_break.until);
                 redirectToCountdownPage();
-                initTimer(last_break.remaining);
+                initTimer();
             } else if (last_break === null || breakDefinitelyOver(last_break.until)) {
                 redirectToMainPage();
             }

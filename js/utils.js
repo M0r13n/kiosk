@@ -1,5 +1,5 @@
-const BASE_URL = "http://localhost:5000/api";
-const CHECK_INTERVAL = 30000;
+const BASE_URL = "http://smartphoniker.scalingo.io/api";
+const CHECK_INTERVAL = 15000;
 
 
 function getShopFromUrl() {

@@ -1,27 +1,59 @@
-/*
-Countdown
-See: https://codepen.io/glaubersampaio/pen/vOZbPx
-*/
-
-/*=================
- * TIMER
- *=================*/
-* {
+/* general styling */
+html,
+body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    font-family: 'Arimo', sans-serif;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 body {
-    background: #d7d7d7;
-    color: white;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #333;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen-Sans,
+        Ubuntu,
+        Cantarell,
+        "Helvetica Neue",
+        sans-serif;
 }
+
+.container {
+    color: #FF6C00;
+    margin: 0 auto;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+li {
+    display: inline-block;
+    font-size: 3.5em;
+    list-style-type: none;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+li span {
+    display: block;
+    font-size: 4.5rem;
+}
+
 
 .center {
     margin: 0;
@@ -44,96 +76,6 @@ button {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
-}
-
-/*=================
-  * TIMER
-  *=================*/
-.timer {
-    width: 550px;
-    height: 248px;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -275px;
-    margin-top: -124px;
-    color: #FF6C00;
-}
-
-.timer * {
-    cursor: default;
-}
-
-.timer h3 {
-    width: 100%;
-    font-size: 26px;
-    letter-spacing: 4px;
-    text-align: center;
-}
-
-.timer--clock {
-    width: 100%;
-    position: relative;
-    padding-left: 6px;
-    margin-top: 22px;
-    overflow: hidden;
-}
-
-.timer--clock .clock-display-grp {
-    width: 100%;
-    position: relative;
-}
-
-.timer--clock .clock-display-grp .number-grp {
-    width: auto;
-    display: block;
-    height: 156px;
-    float: left;
-    overflow: hidden;
-}
-
-.timer--clock .clock-display-grp .number-grp .number-grp-wrp {
-    width: 100%;
-    position: relative;
-}
-
-.timer--clock .clock-display-grp .number-grp .number-grp-wrp .num {
-    width: 100%;
-    position: relative;
-    height: 156px;
-}
-
-.timer--clock .clock-display-grp .number-grp .number-grp-wrp .num p {
-    width: auto;
-    display: table;
-    font-size: 205px;
-    line-height: 150px;
-    font-weight: bold;
-}
-
-.timer--clock .clock-separator {
-    width: auto;
-    float: left;
-    display: block;
-    height: 156px;
-}
-
-.timer--clock .clock-separator p {
-    width: auto;
-    display: table;
-    font-size: 205px;
-    line-height: 150px;
-    font-weight: bold;
-}
-
-.timer h4 {
-    width: 100%;
-    font-size: 10px;
-    letter-spacing: 6px;
-    text-align: center;
-    padding-top: 25px;
-    float: left;
 }
 
 .hidden {
