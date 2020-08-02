@@ -1,0 +1,159 @@
+/*
+Countdown
+See: https://codepen.io/glaubersampaio/pen/vOZbPx
+*/
+
+/*=================
+ * TIMER
+ *=================*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arimo', sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    background: #d7d7d7;
+    color: white;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+button {
+    background-color: #4CAF50;
+    margin: 10px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*=================
+  * TIMER
+  *=================*/
+.timer {
+    width: 550px;
+    height: 248px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -275px;
+    margin-top: -124px;
+    color: #FF6C00;
+}
+
+.timer * {
+    cursor: default;
+}
+
+.timer h3 {
+    width: 100%;
+    font-size: 26px;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+.timer--clock {
+    width: 100%;
+    position: relative;
+    padding-left: 6px;
+    margin-top: 22px;
+    overflow: hidden;
+}
+
+.timer--clock .clock-display-grp {
+    width: 100%;
+    position: relative;
+}
+
+.timer--clock .clock-display-grp .number-grp {
+    width: auto;
+    display: block;
+    height: 156px;
+    float: left;
+    overflow: hidden;
+}
+
+.timer--clock .clock-display-grp .number-grp .number-grp-wrp {
+    width: 100%;
+    position: relative;
+}
+
+.timer--clock .clock-display-grp .number-grp .number-grp-wrp .num {
+    width: 100%;
+    position: relative;
+    height: 156px;
+}
+
+.timer--clock .clock-display-grp .number-grp .number-grp-wrp .num p {
+    width: auto;
+    display: table;
+    font-size: 205px;
+    line-height: 150px;
+    font-weight: bold;
+}
+
+.timer--clock .clock-separator {
+    width: auto;
+    float: left;
+    display: block;
+    height: 156px;
+}
+
+.timer--clock .clock-separator p {
+    width: auto;
+    display: table;
+    font-size: 205px;
+    line-height: 150px;
+    font-weight: bold;
+}
+
+.timer h4 {
+    width: 100%;
+    font-size: 10px;
+    letter-spacing: 6px;
+    text-align: center;
+    padding-top: 25px;
+    float: left;
+}
+
+.hidden {
+    display: none;
+}
+
+.finished {
+    height: 100vh;
+    position: relative
+}
+
+
+.finished p {
+    color: #FF6C00;
+    font-weight: bold;
+    font-size: 50px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
