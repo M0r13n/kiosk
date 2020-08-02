@@ -56,7 +56,6 @@ function initBreakChecker() {
 }
 
 function init() {
-    setZero();
     checkForBreak();
     initBreakChecker();
 }
