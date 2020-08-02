@@ -6,6 +6,11 @@ const second = 1000,
     hour = minute * 60,
     day = hour * 24;
 
+function setZero() {
+    document.getElementById('minutes').innerText = "00";
+    document.getElementById('seconds').innerText = "00";
+}
+
 function initTimer(t) {
     if (timer_running) {
         return;
@@ -18,8 +23,7 @@ function initTimer(t) {
         document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
         if (distance < 0) {
-            document.getElementById('minutes').innerText = "00";
-            document.getElementById('seconds').innerText = "00";
+            setZero();
             clearInterval(x);
         }
     }, 1000);
@@ -52,6 +56,7 @@ function initBreakChecker() {
 }
 
 function init() {
+    setZero();
     checkForBreak();
     initBreakChecker();
 }
