@@ -1,4 +1,4 @@
-const BASE_URL = "http://smartphoniker.scalingo.io/api";
+const BASE_URL = "https://smartphoniker.scalingo.io/api";
 const CHECK_INTERVAL = 15000;
 
 
