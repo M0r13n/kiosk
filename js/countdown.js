@@ -1,8 +1,5 @@
 TweenLite.defaultEase = Expo.easeOut;
 
-const BASE_URL = "http://localhost:5000/api";
-const CHECK_INTERVAL = 30000;
-
 let finishedText = document.querySelector('.finished');
 let timerEl = document.querySelector('.timer');
 let timer_running = false;
@@ -99,44 +96,12 @@ function countdownFinished() {
 
 }
 
-function getShopFromUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const shop = urlParams.get('shop');
-    return shop;
-}
-
-function breakDefinitelyOver(date_string) {
-    // 30 minutes have passed since the break ended
-    const break_end = Date.parse(date_string);
-    const now = new Date();
-    if ((now.getTime() - break_end) >= 30 * 60000) {
-        return true;
-    }
-    return false;
-}
-
-function redirectToCountdownPage() {
-    if (window.location.pathname !== "/countdown.html") {
-        window.location.href = "/countdown.html" + window.location.search;
-    }
-}
-
-function redirectToMainPage() {
-    if (window.location.pathname !== "/index.html") {
-        window.location.href = "/index.html" + window.location.search;
-    }
-}
-
 function checkForBreak() {
     const shop = getShopFromUrl();
     const url = `${BASE_URL}/shop/${shop}/break`;
     fetch(url)
         .then((response) => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                throw new Error("Shop not found!")
-            }
+            return response.json()
         })
         .then(result => {
             const last_break = result.last_break;
