@@ -11,6 +11,7 @@ function setZero() {
     document.getElementById('seconds').innerText = "00";
 }
 
+
 function initTimer(t) {
     if (timer_running) {
         return;
@@ -25,6 +26,7 @@ function initTimer(t) {
         if (distance < 0) {
             setZero();
             clearInterval(x);
+            resetMainPage();
         }
     }, 1000);
 }
@@ -42,9 +44,10 @@ function checkForBreak() {
                 endTime = new Date(last_break.until);
                 redirectToCountdownPage();
                 initTimer();
-            } else if (last_break === null || breakDefinitelyOver(last_break.until)) {
+            } else {
                 redirectToMainPage();
             }
+
         })
         .catch(error => {
             console.error('Error:', error);
