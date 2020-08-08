@@ -40,7 +40,7 @@ function checkForBreak() {
         })
         .then(result => {
             const last_break = result.last_break;
-            if (last_break !== null && !last_break.is_over) {
+            if (last_break && !last_break.is_over) {
                 endTime = new Date(last_break.until);
                 redirectToCountdownPage();
                 initTimer();
