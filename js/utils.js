@@ -1,6 +1,5 @@
-const BASE_URL = "https://smartphoniker.scalingo.io/api";
+const BASE_URL = "https://smartphoniker.osc-fr1.scalingo.io/api";
 const CHECK_INTERVAL = 15000;
-
 
 function getShopFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
