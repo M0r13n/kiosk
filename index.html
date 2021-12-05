@@ -9,52 +9,42 @@
     <meta name="author" content="Leon Morten Richter">
     <link rel="stylesheet" href="css/styles.css?v=1.5">
     <link rel="stylesheet" href="css/scrollbar.css">
+
+    <link rel="stylesheet" href="resource://content-accessible/TopLevelVideoDocument.css">
+    <link rel="stylesheet" href="chrome://global/skin/media/TopLevelVideoDocument.css">
 </head>
 
 <body>
 
-    <main>
+<main>
 
-        <div id="carousel">
+    <div id="carousel">
 
-            <!--Die hier kopieren und Dateinamen entsprechend anpassen-->
-            <div class="hidden">
-                <img src="./pics/Alteräte-Bild-169_V1.png?v=1.1">
-            </div>
-
-            <!--Die hier kopieren und Dateinamen entsprechend anpassen-->
-            <div class="hidden">
-                <img src="./pics/Stämps_Weiß_V2 (1).png?v=1.1">
-            </div>
-
-
-            <!--Die hier höchstens anpassen (Dateinamen ändern) und nicht löschen-->
-            <div class="hidden">
-                <img src="./pics/2021.07.05 Handy Kaputt.png?v=1.1">
-            </div>
-
-            <div class="show">
-                <img src="./pics/SCREENS_16_9_2021_Panzer.jpg?v=1.1">
-            </div>
-
-            <div class="hidden">
-                <img src="./pics/CamperV1.png?v=1.1">
-            </div>
-
-            <!--Ab hier nix anfassen-->
-        </div>
-        <div class="ticker-wrap">
-            <div class="ticker" id="news-ticker">
-                <div class="ticker__item">Sofort verfügbare Angebote:</div>
-            </div>
+        <!--Add as many of such divs as you want to have cards in your carousel-->
+        <div class="show">
+            <img src="./static/CamperV1.png?v=1.1">
         </div>
 
+        <!--You can also display some video. Videos will start playing automatically.-->
+        <div class="hidden">
+            <video muted="" playsinline="" controls>
+                <source src="./static/file_example_MP4_1920_18MG.mp4" type="video/mp4">
+            </video>
+        </div>
 
-    </main>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
-    <script src="js/utils.js?v=1.15"></script>
-    <script src="js/script.js?v=1.15"></script>
-    <script src="js/countdown.js?v=1.15"></script>
+    </div>
+    <div class="ticker-wrap">
+        <div class="ticker" id="news-ticker">
+            <div class="ticker__item">Sofort verfügbare Angebote:</div>
+        </div>
+    </div>
+
+
+</main>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
+<script src="js/utils.js?v=1.15"></script>
+<script src="js/script.js?v=1.15"></script>
+<script src="js/countdown.js?v=1.15"></script>
 </body>
 
 </html>
